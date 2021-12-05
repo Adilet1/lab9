@@ -4,15 +4,14 @@
 	<meta charset="UTF-8">
 	<title>Register-login Form</title>
 	<link rel="stylesheet" href="style.css">
-	<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
-  <script src="script.js"></script>
+	
 
 </head>
 <body>
   <div class="wrapper">
   <div class="left">
         
-    <img src="photo.png" alt="chair_image">
+    <img src="photo.png" alt="chair_image" id="left_img">
   </div>
   <div class="right">
     <div class="tabs">
@@ -26,37 +25,121 @@
 
     <div class="login">
       <p id="article">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p><br>
-      <div class="input_field">
+      
+              <div class="input_field">
         <label class="label">User name</label>
-        <input type="text" placeholder="Enter your User name" class="input">
+        <input type="mail" required placeholder="Enter your User name" class="input" onblur="this.style.borderColor= this.checkValidity() ? 'green' : 'red'" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
       </div>
       <div class="input_field">
         <label class="label">Password</label>
-        <input type="password" placeholder="Enter your Password" class="input">
+        <input type="password" placeholder="Enter your Password" class="input" onblur="this.style.borderColor= this.checkValidity() ? 'green' : 'red'" name="email" pattern="[A-Za-z0-9._%+-]{8,20}$">
       </div>
-      <div class="btn"><a href="#">Login</a></div>
+       <div class="line">
+        <div >
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Check">
+            <label id="cb" for="vehicle1"> Remember me </label><br>
+        </div>
+        <div id="fg">
+            <a href="#">Forgot password ?</a>
+        </div>
     </div>
+      <div class="btn"><a href="#" onclick="location.reload(true)">Login</a></div>
+    </div>  
+      
+
 
     <div class="register">
       <p id="article">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p><br>
-      <div class="input_field">
-        <label class="label">Email Address</label>
-        <input type="text" placeholder="Enter your Email Address" class="input">
-      </div>
-      <div class="input_field">
-        <label class="label">User name</label>
-        <input type="text" placeholder="Enter your User name" class="input">
-      </div>
-      <div class="input_field">
-        <label class="label">Password</label>
-        <input type="password" placeholder="Enter your Password" class="input">
-      </div>
-      <div class="btn"><a href="#">Register</a></div>
-    </div>
-    
-    
+      <form action="#" id="form2">
+        <div class="input_field">
+            <label class="label">Email Address</label>
+            <input type="text" placeholder="Enter your Email Address" class="input" id="field1" class="required">
+          </div>
+          <div class="input_field">
+            <label class="label">User name</label>
+            <input type="text" placeholder="Enter your User name" class="input">
+          </div>
+          <div class="input_field">
+            <label class="label">Password</label> 
+            <input type="password" placeholder="Enter your Password" class="input">
+          </div>
+          <div class="btn"><a href="#" onclick="location.reload(true);">Register</a></div>
+        </div>
+      </form>
+      
     
   </div>
-</div>
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script>
+
+setTimeout(function() {
+   anime({
+    targets: '#left_img',
+    translateX: -100
+  }); 
+}, 8000);
+
+setTimeout(function() {
+   anime({
+    targets: '#left_img',
+    translateX: 0
+  }); 
+}, 10000);
+
+setTimeout(function() {
+   anime({
+  targets: '#article',
+  keyframes: [
+    {translateY: -40},
+    {translateX: 250},
+    {translateY: 40},
+    {translateX: 0},
+    {translateY: 0}
+  ],
+  duration: 4000,
+  easing: 'easeOutElastic(1, .8)',
+  loop: false
+});
+}, 5000);
+
+
+var relativeEl = document.querySelector('h4');
+relativeEl.style.transform = 'translateX(000px)';
+
+
+
+setTimeout(function() {
+   anime({
+  targets: 'h4',
+  translateX: {
+    value: '*=2.5', // 100px * 2.5 = '250px'
+    duration: 1000
+  },
+  width: {
+    value: '-=20px', // 28 - 20 = '8px'
+    duration: 1800,
+    easing: 'easeInOutSine'
+  },
+  rotate: {
+    value: '+=2turn', // 0 + 2 = '2turn'
+    duration: 1800,
+    easing: 'easeInOutSine'
+  },
+  direction: 'alternate'
+});
+}, 1000);
+
+
+
+</script>
+<script src="script.js">
+
+
+</script>
+
+
 </body>
 </html>
